@@ -18,6 +18,9 @@ import java.io.*;
  * fenêtre d'affichage, d'un contexte OpenGL. Elle expose enfin, de 
  * manière succinte comment tracer et remplir un polygone (ici un carré)
  * en OpenGL.
+ * 
+ * Hello World, Mr Heloir was here!
+ * 
  */  
 public class QuadExample {
 
