@@ -37,7 +37,7 @@ public class QuadExample {
      */
     public void start() {
         try {
-            Display.setDisplayMode(new DisplayMode(800,600));
+            Display.setDisplayMode(new DisplayMode(1280,720));
             Display.create();
         } catch (LWJGLException e) {
             e.printStackTrace();
@@ -47,7 +47,7 @@ public class QuadExample {
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, 800, 0, 600, 1, -1);
+        GL11.glOrtho(0, 1280, 0, 720, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
   
         while (!Display.isCloseRequested()) {
@@ -55,14 +55,42 @@ public class QuadExample {
             GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);  
          
             // set the color of the quad (R,G,B,A)
-            GL11.glColor3f(0.5f,0.5f,1.0f);
+            GL11.glColor3f(0.2f,0.5f,1.0f);
              
             // draw quad
-            GL11.glBegin(GL11.GL_QUADS);
-            GL11.glVertex2f(100,100);
-            GL11.glVertex2f(100+200,100);
-            GL11.glVertex2f(100+200,100+200);
-            GL11.glVertex2f(100,100+200);
+            GL11.glBegin(GL11.GL_TRIANGLES);
+                GL11.glVertex2f(100,100);
+                GL11.glVertex2f(100+400,100);
+                GL11.glVertex2f(100+400,100+400);
+                GL11.glVertex2f(100,100+400);
+            GL11.glEnd();
+            
+            GL11.glColor3f(0.5f,0.5f,3.0f);
+            
+            GL11.glBegin(GL11.GL_QUAD_STRIP);
+                GL11.glVertex2f(200,200);
+                GL11.glVertex2f(200+400,200);
+                GL11.glVertex2f(200+400,200+400);
+                GL11.glVertex2f(200,200+400);
+                GL11.glVertex2f(200,200+400);
+            GL11.glEnd();
+            
+            GL11.glColor3f(0.5f,0.1f,3.0f);
+            
+            GL11.glBegin(GL11.GL_POINTS);
+                GL11.glVertex2f(300,300);
+                GL11.glVertex2f(300+400,300);
+                GL11.glVertex2f(300+400,300+400);
+                GL11.glVertex2f(300,300+400);
+            GL11.glEnd();
+            
+            GL11.glColor3f(4.0f,0.5f,1.0f);
+            
+            GL11.glBegin(GL11.GL_LINES);
+                GL11.glVertex2f(700,200);
+                GL11.glVertex2f(700+400,200);
+                GL11.glVertex2f(700+400,200+400);
+                GL11.glVertex2f(700,300+300);
             GL11.glEnd();
   
             Display.update();
