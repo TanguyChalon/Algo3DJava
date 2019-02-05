@@ -47,8 +47,9 @@ public class OpenGLEnVrac {
 
     private boolean light;         // Lighting ON/OFF    
     
-    private float[] lightAmbient = {1.0f,1.0f,1.0f,1.0f};
-    private float[] lightDiffuse = {1.0f,1.0f,1.0f,1.0f};
+    private float[] lightAmbient = {0.0f,0.0f,0.0f,0.0f};
+    private float[] lightDiffuse = {0.5f,0.0f,0.5f,0.0f};
+    private float[] lightSpecularComponent = {1.0f,1.0f,1.0f,1.0f};
 
     private float[] lightPosition = {0.0f,0.0f,5.0f,1.0f};
 
@@ -286,7 +287,8 @@ public class OpenGLEnVrac {
         GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
         GL11.glVertex3f(-1.0f, -1.0f, -1.0f); // Bottom Left Of The Texture and Quad
         GL11.glEnd();
- 
+        
+        GL11.glEnable(GL11.GL_LIGHTING);//On réactive le mode éclairage pour afficher le cube 
 
         return true;
     }
@@ -346,9 +348,13 @@ public class OpenGLEnVrac {
 
         FloatBuffer buffPosition = BufferUtils.createFloatBuffer(4).put(lightPosition);
         buffPosition.position(0);
+        
+        FloatBuffer buffSpecular = BufferUtils.createFloatBuffer(4).put(lightSpecularComponent);
+        buffSpecular.position(0);
                 
         GL11.glLight(GL11.GL_LIGHT1, GL11.GL_AMBIENT, buffAmbient);
         GL11.glLight(GL11.GL_LIGHT1, GL11.GL_DIFFUSE, buffDiffuse);
+        GL11.glLight(GL11.GL_LIGHT1, GL11.GL_SPECULAR, buffSpecular);
         GL11.glLight(GL11.GL_LIGHT1, GL11.GL_POSITION, buffPosition);
         
         GL11.glEnable(GL11.GL_LIGHT1);
