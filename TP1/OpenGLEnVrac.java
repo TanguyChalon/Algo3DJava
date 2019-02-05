@@ -34,7 +34,7 @@ import java.io.*;
 
 public class OpenGLEnVrac {
     private boolean done = false;
-    private boolean fullscreen = false;
+    private boolean fullscreen = true;
     private final String windowTitle = "OpenGL en vrac";
     private boolean f1 = false;
     private DisplayMode displayMode;
@@ -219,8 +219,74 @@ public class OpenGLEnVrac {
         GL11.glTexCoord2f(0.0f, 0.0f);
         GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
         GL11.glEnd();
+        
+        GL11.glTranslatef(3.0f, 1.0f, -6.0f); // Move Into The Screen 5 Units
+         
+        GL11.glBegin(GL11.GL_QUADS);
+        // Front Face
+        //GL11.glColor3f(0.5f,0.5f,0.5f);
+        GL11.glNormal3f( 0.0f, 0.0f, 1.0f);
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(1.0f, -1.0f, 1.0f); // Bottom Right Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(1.0f, 1.0f, 1.0f); // Top Right Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, 1.0f); // Top Left Of The Texture and Quad
+        // Back Face
+        GL11.glNormal3f( 0.0f, 0.0f, -1.0f);        
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, -1.0f); // Bottom Right Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Right Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(1.0f, -1.0f, -1.0f); // Bottom Left Of The Texture and Quad
+        // Top Face
+        GL11.glNormal3f( 0.0f, 1.0f, 0.0f);        
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(1.0f, 1.0f, 1.0f); // Bottom Right Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(1.0f, 1.0f, -1.0f); // Top Right Of The Texture and Quad
+        // Bottom Face
+        GL11.glNormal3f( 0.0f, -1.0f, 0.0f);
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, -1.0f); // Top Right Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(1.0f, -1.0f, -1.0f); // Top Left Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, 1.0f); // Bottom Right Of The Texture and Quad
+        // Right face
+        GL11.glNormal3f( 1.0f, 0.0f, 0.0f);        
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(1.0f, -1.0f, -1.0f); // Bottom Right Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(1.0f, 1.0f, -1.0f); // Top Right Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(1.0f, 1.0f, 1.0f); // Top Left Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+        // Left Face
+        GL11.glNormal3f( -1.0f, 0.0f, 0.0f);        
+        GL11.glTexCoord2f(0.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, -1.0f); // Bottom Left Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 1.0f);
+        GL11.glVertex3f(-1.0f, -1.0f, 1.0f); // Bottom Right Of The Texture and Quad
+        GL11.glTexCoord2f(1.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, 1.0f); // Top Right Of The Texture and Quad
+        GL11.glTexCoord2f(0.0f, 0.0f);
+        GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
+        GL11.glEnd();
 
-        xrot += 0.001f; // X Axis Rotation
+        xrot += 0.2f; // X Axis Rotation
         yrot += 0.02f; // Y Axis Rotation
         zrot += 0.0f; // Z Axis Rotation
 
