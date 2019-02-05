@@ -244,7 +244,7 @@ public class OpenGLEnVrac {
     private void init() throws Exception {
         createWindow();
         TextureLoader myTextureLoader;
-        BufferedImage image = TextureLoader.loadImage("/TP1/res/logo-uvhc.bmp");//The path is inside the jar file
+        BufferedImage image = TextureLoader.loadImage("/TP1/res/BFMTV.bmp");//The path is inside the jar file
         textureID = TextureLoader.loadTexture(image);        
         initGL();
     }
