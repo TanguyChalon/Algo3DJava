@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.BufferUtils;
 import java.nio.FloatBuffer;
 
-import org.lwjgl.util.glu.GLU;
+import org.lwjgl.util.glu.GLU;  
 
 
 import java.io.*;
@@ -58,16 +58,34 @@ public class OpenGLEnVrac {
     private float linear_attenuation = 0.0f;
     private float constant_attenuation = 1.0f;
 
+
+    
+    private float[] lightPosition = {-20.0f,0.0f,-7.0f,1.0f};
+
     //Le dernie composant de ce vecteur indique le type de lumière : si la valeur est 1.0f, la lumière 
     //est ponctuelle, si sa valeur est 0.0f, la lumière est directionnelle et sa direction est donnée 
     //par les 3 composantes du vecteur une lumière directionelle n'est pas soumise à l'atténuation
     private float[] lightPosition = {0.0f,0.0f,-3.0f,1.0f};
+
+
+    //Le dernie composant de ce vecteur indique le type de lumière : si la valeur est 1.0f, la lumière 
+    //est ponctuelle, si sa valeur est 0.0f, la lumière est directionnelle et sa direction est donnée 
+    //par les 3 composantes du vecteur une lumière directionelle n'est pas soumise à l'atténuation
+    private float[] lightPosition = {0.0f,0.0f,-3.0f,1.0f};
+
     
     
     private float[] no_mat = {0.0f, 0.0f, 0.0f, 1.0f};
-    private float[] mat_ambient = {0.3f, 0.3f, 0.3f, 1.0f};
+    private float[] mat_ambient = {3000f, 0.3f, 0.3f, 1.0f};
     private float[] mat_diffuse = {1.0f, 1.0f, 1.0f, 1.0f};
+
+    private float[] mat_specular = {1.0f, 20.0f, 0.0f, 1.0f};
+
     private float[] mat_specular = {0.0f, 1.0f, 0.0f, 1.0f};
+
+
+    private float[] mat_specular = {0.0f, 1.0f, 0.0f, 1.0f};
+
     private float no_shininess = 0.0f;
     private float low_shininess = 5.0f;
     private float high_shininess = 100.0f;
@@ -342,6 +360,11 @@ public class OpenGLEnVrac {
     private void init() throws Exception {
         createWindow();
         TextureLoader myTextureLoader;
+
+        BufferedImage image = TextureLoader.loadImage("/TP1/res/tanguy.jpg");//The path is inside the jar file
+
+        BufferedImage image = TextureLoader.loadImage("/TP1/res/BFMP.bmp");//The path is inside the jar file
+
         BufferedImage image = TextureLoader.loadImage("/TP1/res/BFMP.bmp");//The path is inside the jar file
         textureID = TextureLoader.loadTexture(image);        
         initGL();
