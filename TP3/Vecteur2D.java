@@ -5,7 +5,7 @@ package TP3;
  * Cette classe représente un vecteur à deux dimensions.
  * Elle est surtout utilisée pour définir les coordonnées
  * (u,v) de texture
- * @author (Tanguy CHALON)
+ * @author (Tanguy CHALON & Paul Kaelblen)
  * @version (0.0.0.1 alpha)
  */
 public class Vecteur2D
