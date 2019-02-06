@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.BufferUtils;
 import java.nio.FloatBuffer;
 
-import org.lwjgl.util.glu.GLU;
+import org.lwjgl.util.glu.GLU;  
 
 
 import java.io.*;
@@ -55,13 +55,13 @@ public class OpenGLEnVrac {
     private float constant_attenuation = 1.0f;
 
     
-    private float[] lightPosition = {0.0f,0.0f,-7.0f,1.0f};
+    private float[] lightPosition = {-20.0f,0.0f,-7.0f,1.0f};
     
     
     private float[] no_mat = {0.0f, 0.0f, 0.0f, 1.0f};
-    private float[] mat_ambient = {0.3f, 0.3f, 0.3f, 1.0f};
+    private float[] mat_ambient = {3000f, 0.3f, 0.3f, 1.0f};
     private float[] mat_diffuse = {1.0f, 1.0f, 1.0f, 1.0f};
-    private float[] mat_specular = {1.0f, 0.0f, 0.0f, 1.0f};
+    private float[] mat_specular = {1.0f, 20.0f, 0.0f, 1.0f};
     private float no_shininess = 0.0f;
     private float low_shininess = 5.0f;
     private float high_shininess = 100.0f;
@@ -336,7 +336,7 @@ public class OpenGLEnVrac {
     private void init() throws Exception {
         createWindow();
         TextureLoader myTextureLoader;
-        BufferedImage image = TextureLoader.loadImage("/TP1/res/logo-uvhc.bmp");//The path is inside the jar file
+        BufferedImage image = TextureLoader.loadImage("/TP1/res/tanguy.jpg");//The path is inside the jar file
         textureID = TextureLoader.loadTexture(image);        
         initGL();
     }
