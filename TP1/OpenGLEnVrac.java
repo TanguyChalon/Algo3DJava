@@ -229,7 +229,7 @@ public class OpenGLEnVrac {
         GL11.glEnd();
         
 
-        xrot += 0.01f; // X Axis Rotation (delta d'animation) 
+        xrot += 0.001f; // X Axis Rotation (delta d'animation) 
         yrot += 0.02f; // Y Axis Rotation (delta d'animation) 
         zrot += 0.0f; // Z Axis Rotation (delta d'animation) 
         
@@ -325,7 +325,7 @@ public class OpenGLEnVrac {
         GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
         GL11.glEnd();
 
-        xrot += 0.01f; // X Axis Rotation (delta d'animation) 
+        xrot += 0.001f; // X Axis Rotation (delta d'animation) 
         yrot += 0.02f; // Y Axis Rotation (delta d'animation) 
         zrot += 0.0f; // Z Axis Rotation (delta d'animation) 
         

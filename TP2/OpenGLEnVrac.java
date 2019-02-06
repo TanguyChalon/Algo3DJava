@@ -50,18 +50,24 @@ public class OpenGLEnVrac {
     private float[] lightDiffuse = {0.5f,0.5f,0.5f,0.0f};
     private float[] lightSpecularComponent = {1.0f,1.0f,1.0f,0.0f};
     
-    private float quadratic_attenuation = 0.01f;
+    private float[] spotDirection= {1.5f,0.0f,-5.0f,1.0f}; //Direction
+    private float spotCutoff = 30.0f; //Angle
+    private float spotExponent = 2.0f; //taux de spot
+    
+    private float quadratic_attenuation = 0.0f;
     private float linear_attenuation = 0.0f;
     private float constant_attenuation = 1.0f;
 
-    
-    private float[] lightPosition = {0.0f,0.0f,-7.0f,1.0f};
+    //Le dernie composant de ce vecteur indique le type de lumière : si la valeur est 1.0f, la lumière 
+    //est ponctuelle, si sa valeur est 0.0f, la lumière est directionnelle et sa direction est donnée 
+    //par les 3 composantes du vecteur une lumière directionelle n'est pas soumise à l'atténuation
+    private float[] lightPosition = {0.0f,0.0f,-3.0f,1.0f};
     
     
     private float[] no_mat = {0.0f, 0.0f, 0.0f, 1.0f};
     private float[] mat_ambient = {0.3f, 0.3f, 0.3f, 1.0f};
     private float[] mat_diffuse = {1.0f, 1.0f, 1.0f, 1.0f};
-    private float[] mat_specular = {1.0f, 0.0f, 0.0f, 1.0f};
+    private float[] mat_specular = {0.0f, 1.0f, 0.0f, 1.0f};
     private float no_shininess = 0.0f;
     private float low_shininess = 5.0f;
     private float high_shininess = 100.0f;
@@ -242,9 +248,9 @@ public class OpenGLEnVrac {
         GL11.glVertex3f(-1.0f, 1.0f, -1.0f); // Top Left Of The Texture and Quad
         GL11.glEnd();
 
-        xrot += 0.001f; // X Axis Rotation (delta d'animation)
+        xrot += 0.01f; // X Axis Rotation (delta d'animation)
         yrot += 0.02f; // Y Axis Rotation (delta d'animation)
-        zrot += 0.0f; // Z Axis Rotation (delta d'animation)
+        zrot += 0.01f; // Z Axis Rotation (delta d'animation)
 
         GL11.glPopMatrix();        
         
@@ -322,8 +328,8 @@ public class OpenGLEnVrac {
         Display.setFullscreen(fullscreen);
         DisplayMode d[] = Display.getAvailableDisplayModes();
         for (int i = 0; i < d.length; i++) {
-            if (d[i].getWidth() == 640
-                && d[i].getHeight() == 480
+            if (d[i].getWidth() == 1920
+                && d[i].getHeight() == 1080
                 && d[i].getBitsPerPixel() == 32) {
                 displayMode = d[i];
                 break;
@@ -336,7 +342,7 @@ public class OpenGLEnVrac {
     private void init() throws Exception {
         createWindow();
         TextureLoader myTextureLoader;
-        BufferedImage image = TextureLoader.loadImage("/TP1/res/logo-uvhc.bmp");//The path is inside the jar file
+        BufferedImage image = TextureLoader.loadImage("/TP1/res/BFMP.bmp");//The path is inside the jar file
         textureID = TextureLoader.loadTexture(image);        
         initGL();
     }
@@ -378,6 +384,8 @@ public class OpenGLEnVrac {
         FloatBuffer buffSpecular = BufferUtils.createFloatBuffer(4).put(lightSpecularComponent);
         buffSpecular.position(0);
         
+        FloatBuffer buffSpotDirection = BufferUtils.createFloatBuffer(4).put(spotDirection);
+        buffSpotDirection.position(0); 
                 
         GL11.glLight(GL11.GL_LIGHT1, GL11.GL_AMBIENT, buffAmbient);
         GL11.glLight(GL11.GL_LIGHT1, GL11.GL_DIFFUSE, buffDiffuse);
@@ -386,8 +394,10 @@ public class OpenGLEnVrac {
         GL11.glLightf(GL11.GL_LIGHT1, GL11.GL_CONSTANT_ATTENUATION, constant_attenuation);
         GL11.glLightf(GL11.GL_LIGHT1, GL11.GL_LINEAR_ATTENUATION, linear_attenuation);
         GL11.glLightf(GL11.GL_LIGHT1, GL11.GL_QUADRATIC_ATTENUATION, quadratic_attenuation);
-
         
+        GL11.glLight(GL11.GL_LIGHT1, GL11.GL_SPOT_DIRECTION, buffSpotDirection);
+        GL11.glLightf(GL11.GL_LIGHT1, GL11.GL_SPOT_CUTOFF, spotCutoff);
+        GL11.glLightf(GL11.GL_LIGHT1, GL11.GL_SPOT_EXPONENT, spotExponent);
         
         GL11.glEnable(GL11.GL_LIGHT1);
         
