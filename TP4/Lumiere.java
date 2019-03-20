@@ -1,13 +1,13 @@
-package TP3;
+package TP4;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.BufferUtils;
 import java.nio.FloatBuffer;
 
 /**
- * Classe lumière. Cette classe est abstraite, elle sert à 
- * factoriser les attibuts communs à toutes les lumières :
- * la composante ambiante, la composante spéculaire et la 
+ * Classe lumiï¿½re. Cette classe est abstraite, elle sert ï¿½ 
+ * factoriser les attibuts communs ï¿½ toutes les lumiï¿½res :
+ * la composante ambiante, la composante spï¿½culaire et la 
  * composante diffuse
  *
  * @author (Alexis Heloir)
@@ -23,12 +23,12 @@ public abstract class Lumiere
     private static int m_nextLight = GL11.GL_LIGHT0;
 
     /**
-     * Ce constructeur assigne une parmi les 8 lumières 
+     * Ce constructeur assigne une parmi les 8 lumiï¿½res 
      * disponibles en OpenGL1.1. Le compteur m_currentLight 
-     * est statique, c'est à dire que toutes les instances de 
-     * la classe lumière partagent la valeur de m_currentLight.
-     * Chaque instance connait donc le nombre de lumières déjà 
-     * instanciées.
+     * est statique, c'est ï¿½ dire que toutes les instances de 
+     * la classe lumiï¿½re partagent la valeur de m_currentLight.
+     * Chaque instance connait donc le nombre de lumiï¿½res dï¿½jï¿½ 
+     * instanciï¿½es.
      */ 
     public Lumiere(){
         m_currentLight = m_nextLight;
@@ -36,13 +36,13 @@ public abstract class Lumiere
     }
 
     /**
-     * Constructeur de la classe lumière prenant en paramètres trois 
+     * Constructeur de la classe lumiï¿½re prenant en paramï¿½tres trois 
      * instances de Vecteur3D pour les composantes ambiantes, diffuses 
-     * et spéculaire de la lumière
+     * et spï¿½culaire de la lumiï¿½re
      * 
-     * @param _vecteurAmbiant la composante ambiante de la lumière (Vecteur3D)
-     * @param _vecteurDiffus la composante diffuse de la lumière (Vecteur3D)
-     * @param _vecteurSpeculaire la composante speculaire de la lumière (Vecteur3D)
+     * @param _vecteurAmbiant la composante ambiante de la lumiï¿½re (Vecteur3D)
+     * @param _vecteurDiffus la composante diffuse de la lumiï¿½re (Vecteur3D)
+     * @param _vecteurSpeculaire la composante speculaire de la lumiï¿½re (Vecteur3D)
      */
     public Lumiere(Vecteur3D _vecteurAmbiant, Vecteur3D _vecteurDiffus, Vecteur3D _vecteurSpeculaire)
     {
@@ -67,7 +67,7 @@ public abstract class Lumiere
     
     
     /**
-     * initialisation de la lumière courante.
+     * initialisation de la lumiï¿½re courante.
      */
     public void initialise()
     {
@@ -86,8 +86,8 @@ public abstract class Lumiere
     }
     
     /**
-     * active la lumière courante (on suppose que GL_LIGHTING)
-     * est également activé
+     * active la lumiï¿½re courante (on suppose que GL_LIGHTING)
+     * est ï¿½galement activï¿½
      */    
     public void allumer()
     {
@@ -95,8 +95,8 @@ public abstract class Lumiere
     }
 
     /**
-     * desactive la lumière courante (on suppose que GL_LIGHTING)
-     * est également activé
+     * desactive la lumiï¿½re courante (on suppose que GL_LIGHTING)
+     * est ï¿½galement activï¿½
      */    
     public void eteindre()
     {

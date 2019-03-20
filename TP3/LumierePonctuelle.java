@@ -14,7 +14,7 @@ public class LumierePonctuelle extends Lumiere
 
     /**
      * Constructor for objects of class LumerePonctuelle
-     */
+     */ q
     public LumierePonctuelle()
     {
         // initialise instance variables
@@ -33,3 +33,4 @@ public class LumierePonctuelle extends Lumiere
         return x + y;
     }
 }
+ 
