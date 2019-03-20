@@ -28,8 +28,15 @@ public abstract class Noeud
     public Noeud(Noeud _parent)
     {
         m_parent = _parent;
+        _parent.ajouteEnfant(this); //Le parent m'ajoute à sa liste d'enfants 
     }
-
+/**
+ * Ajoute le noeud _enfant passé en paramètreà la liste d'enfant en attribut 
+ * @param _enfant le noeud enfant à rajouter à la liste d'enfants. 
+ */
+    public void ajouteEnfant(Noeud _enfant){
+    m_enfants.add(_enfant);
+    }
     /** 
      * Méthode abstraite en charge d'appeler les instructions openGL permettant
      * d'afficherle noeud (même is on ne sais pas encore ce qu'il représente) 
