@@ -1,26 +1,39 @@
 package TP5;
 
+import java.util.Vector; 
 
 /**
- * Abstract class Noeud - write a description of the class here
+ * La classe noeud est une classe abstraite en amont de la hiérarchie 
+ * de classes de notre graphe de scène. 
+ * Sa fonction principale est de porter la structure d'arbre du graphe de scène. 
+ * Un noeud peut avoir plusieurs enfants et un seul parent. 
+ * Seul le noeud d'origine de la scène n'a pas de parent.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Tanguy CHALON
+ * @version 20/03/2019
  */
 public abstract class Noeud
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Un noeud peut avoir plusieurs enfants 
+    protected Vector<Noeud> m_enfants; 
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+    // Un noeud à un seul parent
+
+    protected Noeud m_parent; 
+
+    /** 
+     * Le constructeur par défaut de la classe noeud prend le noeud parent en paramètre 
      */
-    public int sampleMethod(int y)
+
+    public Noeud(Noeud _parent)
     {
-        // put your code here
-        return x + y;
+        m_parent = _parent;
     }
+
+    /** 
+     * Méthode abstraite en charge d'appeler les instructions openGL permettant
+     * d'afficherle noeud (même is on ne sais pas encore ce qu'il représente) 
+     */
+
+    public abstract void afficher();
 }
