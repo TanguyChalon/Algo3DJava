@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class CubeTexture extends Objet
+public class CubeTextureParFace extends Objet
 {
 
     private int m_textureID;         // Storage For One Texture ( NEW )            
@@ -25,7 +25,7 @@ public class CubeTexture extends Objet
      * Constructor for objects of class CubeTexture
      */
     
-    public CubeTexture(Noeud _parent, String _texturePath)
+    public CubeTextureParFace(Noeud _parent, String _texturePath)
     {
         super(_parent);
 

@@ -26,7 +26,8 @@ public class CubeFilDeFer extends Objet
      * Vous trouverez ces instructions dans la clase OpenGL en vrac du package TP2.
      */
     public void dessine(){
-
+        //On change la couleur pour dessiner le cube fil de fer dans la couleur dessinée
+        GL11.glColor3f(1.0f, 1.0f, 1.0f);
         // On désactive le mode d'éclairage pour afficher des lignes
         GL11.glDisable(GL11.GL_LIGHTING);
 
