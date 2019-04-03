@@ -1,4 +1,4 @@
-package TP7;
+package TP8;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -13,9 +13,11 @@ import java.nio.FloatBuffer;
 
 import TP4.*;
 import TP6.*;
+import TP7.*;
 
 import java.io.*;
 
+import java.util.*;
 
 /**
  * La classe Monde est le noeud primordial à l'origine du graphe
@@ -136,7 +138,7 @@ public class Monde extends Noeud
         
         GL11.glEnable(GL11.GL_TEXTURE_2D); // Enable Texture Mapping
         GL11.glShadeModel(GL11.GL_SMOOTH); // Enable Smooth Shading
-        GL11.glClearColor(1.0f, 0.0f, 0.0f, 0.0f); // Black Background
+        GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Black Background
         GL11.glClearDepth(1.0); // Depth Buffer Setup
         GL11.glEnable(GL11.GL_DEPTH_TEST); // Enables Depth Testing
         GL11.glDepthFunc(GL11.GL_LEQUAL); // The Type Of Depth Testing To Do
@@ -163,42 +165,68 @@ public class Monde extends Noeud
     }
 
     private void prepareScene(){
-        Vecteur3D vecteur0 = new Vecteur3D(0.0f,-20.0f,-80.0f);
+        
+        Random rand = new Random();
+        
+        Vecteur3D vecteur0 = new Vecteur3D(0.0f,-5.0f,-16.0f);
         Transformation translation0 = new Translation(this, vecteur0);
+        
+        CubeCouleur cube0 = new CubeCouleur(translation0,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
+        
+        Vecteur3D vecteur1 = new Vecteur3D(-4.0f,0.0f,0.0f);
+        Transformation translation1 = new Translation(translation0, vecteur1);        
+        CubeCouleur cube1 = new CubeCouleur(translation1,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
+        
+        Vecteur3D vecteur2 = new Vecteur3D(-2.0f,0.0f,0.0f);
+        Transformation translation2 = new Translation(translation0, vecteur2);        
+        CubeCouleur cube2 = new CubeCouleur(translation2,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
 
-        Vecteur3D vecteur11 = new Vecteur3D(-15.0f,8.0f,0.0f);
-        Transformation translation11 = new Translation(translation0, vecteur11);        
-        RotationAnimee rotation11 = new RotationAnimee(translation11, new Vecteur3D(0.0f,1.0f,0.0f), 90.0f, 5000);
+        Vecteur3D vecteur3 = new Vecteur3D(2.0f,0.0f,0.0f);
+        Transformation translation3 = new Translation(translation0, vecteur3);        
+        CubeCouleur cube3 = new CubeCouleur(translation3,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));        
+
+        Vecteur3D vecteur4 = new Vecteur3D(4.0f,0.0f,0.0f);
+        Transformation translation4 = new Translation(translation0, vecteur4);        
+        CubeCouleur cube4 = new CubeCouleur(translation4,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
         
-        Vecteur3D vecteur12 = new Vecteur3D(25.0f,8.0f,0.0f);
-        Transformation translation12 = new Translation(translation0, vecteur12);   
-        RotationAnimee rotation12 = new RotationAnimee(translation12, new Vecteur3D(0.0f,1.0f,0.0f), 90.0f, 5000);
+        Vecteur3D vecteur5 = new Vecteur3D(-2.0f,2.0f,0.0f);
+        Transformation translation5 = new Translation(translation0, vecteur5);        
+        CubeCouleur cube5 = new CubeCouleur(translation5,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
         
-        Vecteur3D vecteur13 = new Vecteur3D(50.0f,8.0f,0.0f);
-        Transformation translation13 = new Translation(translation0, vecteur13);   
-        RotationAnimee rotation13 = new RotationAnimee(translation13, new Vecteur3D(0.0f,1.0f,0.0f), 90.0f, 5000);
+        Vecteur3D vecteur6 = new Vecteur3D(0.0f,2.0f,0.0f);
+        Transformation translation6 = new Translation(translation0, vecteur6);        
+        CubeCouleur cube6 = new CubeCouleur(translation6,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat())); 
+
+        Vecteur3D vecteur7 = new Vecteur3D(2.0f,2.0f,0.0f);
+        Transformation translation7 = new Translation(translation0, vecteur7);        
+        CubeCouleur cube7 = new CubeCouleur(translation7,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat())); 
+
+        Vecteur3D vecteur8 = new Vecteur3D(0.0f,4.0f,0.0f);
+        Transformation translation8 = new Translation(translation0, vecteur8);        
+        CubeCouleur cube8 = new CubeCouleur(translation8,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
         
-        Vecteur3D vecteur14 = new Vecteur3D(-30.0f,8.0f,0.0f);
-        Transformation translation14 = new Translation(translation0, vecteur14);   
-        RotationAnimee rotation14 = new RotationAnimee(translation14, new Vecteur3D(0.0f,1.0f,0.0f), 90.0f, 5000);
+        Vecteur3D vecteur9 = new Vecteur3D(0.0f,5.5f,0.0f);
+        Transformation translation9 = new Translation(translation0, vecteur9);
+        Vecteur3D vecteurEchelle9 = new Vecteur3D(0.5f,0.5f,0.5f);        
+        Echelle echelle9 = new Echelle(translation9,vecteurEchelle9);
+        CubeCouleur cube9 = new CubeCouleur(echelle9,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
         
-        // CubeTextureParFace cube11 = new CubeTextureParFace(rotation11); 
+        Vecteur3D vecteur10 = new Vecteur3D(0.0f,6.25f,0.0f);
+        Transformation translation10 = new Translation(translation0, vecteur10);
+        Vecteur3D vecteurEchelle10 = new Vecteur3D(0.25f,0.25f,0.25f);        
+        Echelle echelle10 = new Echelle(translation10,vecteurEchelle10);
+        CubeCouleur cube10 = new CubeCouleur(echelle10,new Vecteur3D(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
         
-        Bouclier monBouclier = new Bouclier(rotation11);
         
-        Epee monEpee = new Epee(rotation12);
-        
-        Torche maTorche = new Torche(rotation13);
-        
-        Fleche mafleche = new Fleche(rotation14);
+        Vecteur3D vecteur11 = new Vecteur3D(0.0f,8.0f,0.0f);      
     }
     
     private void createWindow() throws Exception {
         Display.setFullscreen(m_fullscreen);
         DisplayMode d[] = Display.getAvailableDisplayModes();
         for (int i = 0; i < d.length; i++) {
-            if (d[i].getWidth() == 1920
-                && d[i].getHeight() == 1080
+            if (d[i].getWidth() == 640
+                && d[i].getHeight() == 480
                 && d[i].getBitsPerPixel() == 32) {
                 m_displayMode = d[i];
                 break;

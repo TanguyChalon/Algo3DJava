@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=RotationAnimee
+comment0.text=\r\n\ Une\ rotation\ dont\ l'angle\ de\ rotation\ est\ dynamique.\r\n\ la\ valur\ de\ rotation\ d\u00E9clar\u00E9e\ dans\ la\ classe\ parente\ (m_angle)\r\n\ est\ appliqu\u00E9e\ toutes\ les\ m_intervalleEnMS\ millisecondes.\r\n\ Cette\ classe\ repose\ sur\ le\ singleton\ Horloge\ pour\ g\u00E9rer\ sa\ temporalit\u00E9\r\n\r\n\ @author\ Alexis\ Heloir\r\n\ @version\ 2019/03/26\r\n
+comment1.params=_parent\ _axe\ _angle\ _intervalleEnMS
+comment1.target=RotationAnimee(TP6.Noeud,\ TP4.Vecteur3D,\ float,\ int)
+comment1.text=\r\n\ Le\ constructeur\ appelle\ celui\ de\ la\ classe\ parente\ avec\ un\ param\u00E8tre\ en\ plus\ \:\ l'intevalle\ en\ \r\n\ millisecondes\ lors\ duquel\ l'angle\ m_angleInitial\ sera\ appliqu\u00E9\r\n\ @param\ _intervalleEmMS\ l'intervalle\ pendant\ lequel\ l'angle\ m_angleInitial\ sera\ appliqu\u00E9\r\n
+comment2.params=
+comment2.target=void\ transforme()
+comment2.text=\r\n\ Cette\ classe\ met\ \u00E0\ jour\ l'angle\ m_angle\ \u00E0\ partir\ de\ sa\ valeur\ initiale\ et\ du\ temps\ \r\n\ \u00E9coul\u00E9\ depuis\ le\ dernier\ tick\ d'horloge.\ Elle\ appelle\ ensuite\ la\ transformation\ de\ \r\n\ la\ classe\ parente\r\n
+numComments=3

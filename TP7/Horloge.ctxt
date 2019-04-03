@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Horloge
+comment0.text=\r\n\ Classe\ singleton\ qui\ repr\u00E9sente\ une\ Horlge\ dont\ l'instance\ unique\ \r\n\ garantie\ que\ la\ base\ de\ temps\ sera\ partag\u00E9e\ par\ toutes\ les\ instances\r\n\ uitlisatrices\ du\ Singleton\r\n\r\n\ @author\ Alexis\ Heloir\r\n\ @version\ 2019/03/26\r\n
+comment1.params=
+comment1.target=Horloge()
+comment1.text=\r\n\ Le\ constructeur\ de\ la\ classe\ horloge\r\n
+comment2.params=
+comment2.target=long\ getTempsPasseDepuisDernierTick()
+comment2.text=\r\n\ Conbien\ de\ temps\ se\ sont\ \u00E9coul\u00E9s\ depuis\ le\ dernier\ tick()?\r\n\ @return\ le\ temps\ \u00E9coul\u00E9\ depuis\ le\ dernier\ tick\ (em\ millisecondes)\r\n
+numComments=3

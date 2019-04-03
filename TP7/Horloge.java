@@ -19,26 +19,14 @@ public class Horloge
 
     
     /**
-     * Le constructeur du singleton est privé : il n'est pas accessible depuis l'extérieur 
-     * puisque l'instance unique du singleton est retournée par la méthode getInstance()
+     * Le constructeur de la classe horloge
      */
-    private Horloge()
+    public Horloge()
     {
         m_startTime = System.currentTimeMillis();
         m_lastTick = m_startTime;
     }
     
-    /**
-     * Cette méthode retourne l'instance unique de l'horloge
-     */
-    public static Horloge getInstance()
-    {
-        if (m_instanceUnique == null) {
-            m_instanceUnique = new Horloge();
-        }
-        return m_instanceUnique;
-    }
-
     /**
      * Conbien de temps se sont écoulés depuis le dernier tick()?
      * @return le temps écoulé depuis le dernier tick (em millisecondes)
