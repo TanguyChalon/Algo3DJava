@@ -13,7 +13,7 @@ import TP6.*;
  * @author Alexis Heloir
  * @version 2019/03/26
  */
-public class RotationAnimee extends Rotation
+public class RotationAnimee extends TP6.Rotation
 {
 
     private int m_intervalleEnMS; // m_angle est appliqué toutes les m_intervalleEnMS sillisecondes

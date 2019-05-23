@@ -14,8 +14,8 @@ import TP4.Vecteur3D;
 public class Rotation extends Transformation
 {
 
-    private float m_angle;
-    private Vecteur3D m_axe;
+    protected float m_angle;
+    protected Vecteur3D m_axe;
     
 
     /**
